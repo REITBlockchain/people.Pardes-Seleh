@@ -1,0 +1,596 @@
+Delivered-To: wakeupandbuildanempire@gmail.com
+Received: by 2002:a05:6a10:bd26:b0:537:a75a:7f28 with SMTP id vu38csp2954427pxb;
+        Tue, 27 Feb 2024 09:09:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IErAaBqvsdzENufAdHmSpAH6mlQIMsm/6FR78UivuLlRf+Aoks3PJ63LWDfa/oaNZwpPl54
+X-Received: by 2002:a5b:644:0:b0:dc6:a8c6:c9e5 with SMTP id o4-20020a5b0644000000b00dc6a8c6c9e5mr84389ybq.26.1709053786449;
+        Tue, 27 Feb 2024 09:09:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1709053786; cv=none;
+        d=google.com; s=arc-20160816;
+        b=CJVFs4lqVWl71zbRQ8y2CVMSJXRUxlmn621S8WYkUTz1SQrthgJpeRzZ5TSQeh1EMe
+         UXEJSX+ag8xIOtwEPiehEJtC8V6trw/sXqwPm8ji7SxICP72MQvvbab073y0r4bIeCmj
+         crDFRhOZJUBoekpP5LeDV33NECwoeC/Y8AEwWq/K7z90Cm0KQXtrQsa66NZ9K5t1udJU
+         1wxSAHMd1GQKHlYtkx1wg/3wtUrYYXgG230E8ufwQsiQsmD+xXvWApDuEyaSC7ZSbHRF
+         QDUNuCEISXul8mRY1nhGm741mQCmIOT+KSX8g6rr7c7XJbVhaJtxZ8LxABuCxhqaI+N1
+         HwHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:list-unsubscribe-post:feedback-id:list-unsubscribe:precedence
+         :reply-to:subject:message-id:mime-version:from:date:dkim-signature
+         :dkim-signature;
+        bh=WIhFEy5jsl8wz5AKGh8ueEQPGcayS7EouhliRQrroXw=;
+        fh=aOk0NiKLAvp7iIYfGg14TtSY2CiqQw9GgVq6DvfAv2k=;
+        b=CLPONoss98e5yldXsf0omD/T9IZMOgNG+7fKIqV0p/k4LnFKvIMPRYbyPg6iRD+uH4
+         5THeCtGW/Z14xI06acO/jh8W7wx4aWeknUgJqHme/zrUN6NFQJAR4HomXlnPM+NBL46E
+         ezhKIgu8iyLUziAEuIn9I2FqvSZuDLNp8uF86P2kUORg4j4HS5IbHNI2diKCmdHfzqBn
+         +msi1k37UcnFxTXHhmTJECReTSDROPCfOPCBnEl6phcKOcEoWYG61FBqqDQ501QsJ2us
+         aZati39DEtHQHMyVk88Q4O/67E+jmEWeWD4S1h65gJPAKAqKL605Hdmp8sYG8I24rszJ
+         98Iw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@househackersanonymous.com header.s=s1 header.b=puKeC85e;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="ZOGBBrM/";
+       spf=temperror (google.com: error in processing during lookup of bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com: DNS error) smtp.mailfrom="bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=househackersanonymous.com
+Return-Path: <bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com>
+Received: from o6.sg.ascendbywix.com (o6.sg.ascendbywix.com. [167.89.80.237])
+        by mx.google.com with ESMTPS id g84-20020a252057000000b00dc618f6503esi2482530ybg.265.2024.02.27.09.09.35
+        for <wakeupandbuildanempire@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 27 Feb 2024 09:09:46 -0800 (PST)
+Received-SPF: temperror (google.com: error in processing during lookup of bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com: DNS error) client-ip=167.89.80.237;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@househackersanonymous.com header.s=s1 header.b=puKeC85e;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b="ZOGBBrM/";
+       spf=temperror (google.com: error in processing during lookup of bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com: DNS error) smtp.mailfrom="bounces+37209074-3ce5-wakeupandbuildanempire=gmail.com@sg.househackersanonymous.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=househackersanonymous.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=househackersanonymous.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=s1; bh=WIhFEy5jsl8wz5AKGh8ueEQPGcayS7EouhliRQrroXw=;
+	b=puKeC85ezZy1exX0UlCsuqW7baMeyymjPCoBRNd92ofmb670lYJSpO8UHICQx09dQZRV
+	1Kf+o0M2/gArxfETjfvqEAJwqrAylFSvIm0OhuJuGpjKZtiior6epUZplAXvwYL6gSt7D5
+	H7tiqdWhftxYk3ncDSjPbPiqJciKUDaOfyIG1422uiWku1gNBGNLOhrD/CeERa+MbF0y+3
+	nMvsNk0Q8OFYhy8ljkj2OXm8Q+V8nujvbOjn++CJjfNaDgn33vIToRS4aTQMFZVOEiMHvp
+	bZ1tImz6+ucEmskOQXXIwsiw+DJmrRMllfWLYGxt9lgrnCG4NmHBKdtUoCPxasbA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:x-feedback-id:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=WIhFEy5jsl8wz5AKGh8ueEQPGcayS7EouhliRQrroXw=;
+	b=ZOGBBrM/ZYXW1POfahwVeB07Xco1pD0z2cGjqUfjrpaMzBlGWXntsr7VMOdfsRPDKURt
+	+9zimtlhEbmaGFBqpgTAUCLp/YAL5yE8txYoHbYIBaNYpNAzG8Hv8bLyOPphNI+aWYl+U/
+	9jAAxVEtFgq8Xg8oTNwHEf/gYecS5+ky4=
+Received: by filterdrecv-58bfc74dd6-xxj9c with SMTP id filterdrecv-58bfc74dd6-xxj9c-1-65DE174F-2A
+        2024-02-27 17:09:35.494182919 +0000 UTC m=+2861578.858357201
+Received: from MzcyMDkwNzQ (unknown)
+	by geopod-ismtpd-36 (SG) with HTTP
+	id pohyWSfkTO2fq3-QfqLd_w
+	Tue, 27 Feb 2024 17:09:35.456 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=e644fb410cc8030dd2329321ede99756f575025e7377afef038bf14f4cfe
+Date: Tue, 27 Feb 2024 17:09:35 +0000 (UTC)
+From: Pardes Seleh <info@househackersanonymous.com>
+Mime-Version: 1.0
+Message-ID: <pohyWSfkTO2fq3-QfqLd_w@geopod-ismtpd-36>
+Subject: New post in House Hackers App
+Reply-To: Pardes Seleh <info@househackersanonymous.com>
+Precedence: Bulk
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Fwww=2Ehousehackersanonymous=2Ecom=2F=2F=5Fmanage-consent=2Fapi=2Fre?=
+ =?us-ascii?Q?voke-consent=2Funsubscribe=3FwixToken=3DJWE=2Ee?=
+ =?us-ascii?Q?yJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JD?=
+ =?us-ascii?Q?LUhTMjU2Iiwia2lkIjoiZkhJbFA4M1cifQ=2El7U6?=
+ =?us-ascii?Q?E=5Fjglvgjl=5FcSdCz-Zezank4gWXLN62xbUg4vDv8?=
+ =?us-ascii?Q?kAKHxk3TkSw=2EVXSru0UxFU=5Fm7xlGVlwCqA=2EvE18?=
+ =?us-ascii?Q?sivb2mlnhSzGocTUukjkRQ9XPHysyLC0E=5FgH0X2?=
+ =?us-ascii?Q?EiiuhqxFJXte33rdP4UtFrn6tJcxWrOyZ9kc6dI?=
+ =?us-ascii?Q?W80aITXmWzrrKMPpnvWX=5FEY-F7B3xZSDXmu73Ax?=
+ =?us-ascii?Q?1R9WWjiOgPRizRI5ThSpjN77jW1QMpUi7H7Og84?=
+ =?us-ascii?Q?Ipy9o8Z9ORvoFi-gpOCYzYl8-HGK12OLxumDsAS?=
+ =?us-ascii?Q?DVdgs=5FmPKZdzae0T59x4z6DFZ1yHUGMJD3=5FwUD8?=
+ =?us-ascii?Q?IYDevlc=5Fo86R74hOBLvtongG4r0a8SiX=5FHY9T4B?=
+ =?us-ascii?Q?LOenEyq2G3MS2Yzse71v94=2EIeQB4y6msP1iRt6c?=
+ =?us-ascii?Q?HpS09w&locale=3Den=3E?=
+Feedback-ID: 
+ =?us-ascii?Q?6b548af9-d350-4c88-9913-7157a59ba9a5=3A6e442299-dc93-42d3-a825-5?=
+ =?us-ascii?Q?a68837b1bd1=3Awixshoutout?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-abuse-id: 6b548af9-d350-4c88-9913-7157a59ba9a5
+X-Feedback-ID: 37209074:SG
+X-SG-EID: 
+ =?us-ascii?Q?MjKVXAbDT8xo=2FaLRYaTTFKT4V11rEOV4POHLR5SB=2FXcP7JyTILthFvz2HHjEvI?=
+ =?us-ascii?Q?fCUUT58=2FerRgsDtUGz7W9Y6ySr25sRyADe=2F+NX7?=
+ =?us-ascii?Q?qByEfzV3Y7nUJQbXPWOCGFeDB2hxZPyzSM4hRtm?=
+ =?us-ascii?Q?aUK8lvPs+Klw11kIA98jat722CK2DWS5V=2FU3XWt?=
+ =?us-ascii?Q?nKgYSIOkEG=2FgfgKUULewgmjW8LESnrlohDX8kzr?=
+ =?us-ascii?Q?5Yw1cfLD9aWzUI0jwFTsHb4bcqMH368M6Qbn+3e?=
+ =?us-ascii?Q?JAuTlaNIYEFz7hm3qXc9A=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FLP5qbstBs+tNXeqRqWNM?=
+ =?us-ascii?Q?ElXL97lzut3o+IPcAkA9CcXv8yKhwJejT9wnW1j?=
+ =?us-ascii?Q?UPmsdIUpuh=2F0ZQ1dr7hgK7WpQmll9oCodD0N1tQ?=
+ =?us-ascii?Q?6Y0w9pjBdqZv4ctWbMmggrjShMQcbihyoz50wQT?=
+ =?us-ascii?Q?sRR2psLukyou+iy0Rp+QlqhvghdqLYhFogAgu8I?=
+ =?us-ascii?Q?xCdNoTBMxt8elAtPPk=2FLzpnbd6b30KtYjWgAeZo?=
+ =?us-ascii?Q?MYFV6Bo5gYCzoDdDjrddZp6AiD+5CNraX4VzBzW?=
+ =?us-ascii?Q?N22qcst=2F2n2mQOhUwM3ihztvrXmg7YeYX0mM6qb?=
+ =?us-ascii?Q?JUUw4TwWcVFyDKdWIMGj2KCg0XV3Sz72wRg8iN8?=
+ =?us-ascii?Q?XhWMcbacW94ZlRK8VYhI8M7itDMuZsPIM47npfc?=
+ =?us-ascii?Q?DsLLUMyzbAvSo9xun3vEIWwxih670ZiuoPZ=2FRu+?=
+ =?us-ascii?Q?pUMwQDZfBkhqNATRLPqiZY7FLfDT+Y6dQ1=2Frj50?=
+ =?us-ascii?Q?9mGMiJrOiHSIPpFdzyJw18zGplMasnS2GrKwvxY?=
+ =?us-ascii?Q?uNCl1PtDXWjUy9A26RWVPscbTfSdM4I1hb64Icq?=
+ =?us-ascii?Q?qa+1kgcAxOxj2qnW5sqfrqe0dalqQX7cl1qclgH?=
+ =?us-ascii?Q?2aWdkMaNrNO6r9fG8ZiG60kwVfNC+Bqt?=
+To: wakeupandbuildanempire@gmail.com
+X-Entity-ID: EbX3vFCxUs26w1GT2vdFkQ==
+
+--e644fb410cc8030dd2329321ede99756f575025e7377afef038bf14f4cfe
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Mime-Version: 1.0
+
+New from the Blog in=A0House Hackers App
+
+This is your life's purpose
+
+This is who you are and what your life's purpose is. You're welcome ;) Free=
+ stuff: $250 when you deposit $10k with Mercury within 90...=A0
+
+Click on the link below to open the message in a browser:
+https://shoutout.wix.com/so/tr/1758c10d-6711-4831-a7ed-4bf614be8f1d
+
+You've received this email because you are a subscriber of this site:
+https://shoutout.wix.com/so/tr/1758c10d-6711-4831-a7ed-4bf614be8f1d/c?w=3DG=
+xpfKx2iMByT9Q0GKsH2eZIB3t3r0sKCt89bNMVQeK8.eyJ1IjoiaHR0cHM6Ly93d3cuaG91c2Vo=
+YWNrZXJzYW5vbnltb3VzLmNvbS8iLCJjIjoiZDlmMjUxZjktNGJlZi00YTJlLWI5NDEtZjNkZGM=
+1NDQzYzk5IiwibSI6Im1haWwifQ
+
+If you feel you received it by mistake or wish to unsubscribe, please click=
+ here:
+https://www.househackersanonymous.com//_manage-consent/api/revoke-consent/u=
+nsubscribe?wixToken=3DJWE.eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2I=
+iwia2lkIjoiZkhJbFA4M1cifQ.l7U6E_jglvgjl_cSdCz-Zezank4gWXLN62xbUg4vDv8kAKHxk=
+3TkSw.VXSru0UxFU_m7xlGVlwCqA.vE18sivb2mlnhSzGocTUukjkRQ9XPHysyLC0E_gH0X2Eii=
+uhqxFJXte33rdP4UtFrn6tJcxWrOyZ9kc6dIW80aITXmWzrrKMPpnvWX_EY-F7B3xZSDXmu73Ax=
+1R9WWjiOgPRizRI5ThSpjN77jW1QMpUi7H7Og84Ipy9o8Z9ORvoFi-gpOCYzYl8-HGK12OLxumD=
+sASDVdgs_mPKZdzae0T59x4z6DFZ1yHUGMJD3_wUD8IYDevlc_o86R74hOBLvtongG4r0a8SiX_=
+HY9T4BLOenEyq2G3MS2Yzse71v94.IeQB4y6msP1iRt6cHpS09w&locale=3Den
+--e644fb410cc8030dd2329321ede99756f575025e7377afef038bf14f4cfe
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!doctype html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office"><head><title></title><!--[if !mso]><!--><meta http-equiv=3D=
+"X-UA-Compatible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equiv=3D=
+"Content-Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"viewpor=
+t" content=3D"width=3Ddevice-width,initial-scale=3D1"><style type=3D"text/c=
+ss">#a a {padding:0;}body {margin:0;padding:0;-webkit-text-size-adjust:100%=
+;-ms-text-size-adjust:100%;}table,td {border-collapse:collapse;mso-table-ls=
+pace:0pt;mso-table-rspace:0pt;}img {border:0;height:auto;line-height:100%;o=
+utline:none;text-decoration:none;-ms-interpolation-mode:bicubic;}p {display=
+:block;margin:13px 0;}</style><!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><style type=3D"text/css"></style><style type=3D"text/css"><=
+/style><!--[if !mso]><!--><link href=3D"https://static.parastorage.com/unpk=
+g/@wix/wix-emails-fonts@1.1.2/f/Ubuntu.css" rel=3D"stylesheet" type=3D"text=
+/css"><style type=3D"text/css">@import url(https://static.parastorage.com/u=
+npkg/@wix/wix-emails-fonts@1.1.2/f/Ubuntu.css);</style><!--<![endif]--><sty=
+le type=3D"text/css">@media only screen and (min-width:480px){ .a {width:10=
+0%!important;max-width:100%;} }</style><style media=3D"screen and (min-widt=
+h:480px)">.b .a {width:100%!important;max-width:100%;}</style><style type=
+=3D"text/css">[owa] .a {width:100%!important;max-width:100%;}</style><style=
+ type=3D"text/css">.c {text-decoration:none;} @media all and (max-width:480=
+px){ .d td {width:100%!important;} }@media all and (max-width:480px){ .e{fo=
+nt-size:16px!important;}.f{font-size:16px!important;}.g{font-size:14px!impo=
+rtant;}.h{font-size:28px!important;}.i{font-size:28px!important;}.j{font-si=
+ze:20px!important;}.k{font-size:16px!important;}.l{font-size:16px!important=
+;}.m{font-size:16px!important;}.n{font-size:14px!important;}.o{font-size:24=
+px!important;}.p{font-size:16px!important;}.e{line-height:24px!important;}.=
+f{line-height:24px!important;}.h{line-height:36.4px!important;}.i{line-heig=
+ht:36.4px!important;}.j{line-height:28px!important;}.k{line-height:24px!imp=
+ortant;}.n{line-height:21px!important;}.o{line-height:31.200000000000003px!=
+important;} .q>table {width:100%!important;} .r {display:none!important;} .=
+s .t>table>tbody>tr>td {padding-bottom:24px!important;} .u .t>table>tbody>t=
+r>td {padding-top:24px!important;} .s.t>table>tbody>tr>td {padding-bottom:2=
+4px!important;} .u.t>table>tbody>tr>td {padding-top:24px!important;} .v .t>=
+table>tbody>tr>td {padding-top:16px!important;} .w .t>table>tbody>tr>td {pa=
+dding-right:16px!important;} .x .t>table>tbody>tr>td {padding-bottom:16px!i=
+mportant;} .y .t>table>tbody>tr>td {padding-left:16px!important;} .z .t>tab=
+le>tbody>tr>td {padding-left:0px!important;} .ab .t>table>tbody>tr>td {padd=
+ing-right:0px!important;} .bb>table>tbody>tr>td {padding-right:16px!importa=
+nt;} .cb>table>tbody>tr>td {padding-left:16px!important;} }@media only scre=
+en and (max-width:480px){ .db>table>tbody>tr>td {padding-right:0px!importan=
+t;padding-left:0px!important;} .eb>table>tbody>tr>td {padding-bottom:0px!im=
+portant;} .fb>table>tbody>tr>td {padding-top:24px!important;} .gb {width:36=
+px!important;height:36px!important;} .hb {width:12px!important;} .ib {margi=
+n:12px!important;} .jb{font-size:16px!important;} .kb{font-size:24px!import=
+ant;} .lb{line-height:20px!important;} .mb{line-height:29px!important;} .nb=
+{line-height:24px!important;} .ob {padding:0!important;} .pb {max-width:100=
+%!important;} .qb {max-width:unset!important;} .rb>div {height:0px!importan=
+t;} .sb>table>tbody>tr>td {padding-top:30px!important;} .sb .t>table>tbody>=
+tr>td {padding-top:10px!important;} } @media only screen and (min-width:480=
+px){ .html-emails-background>tbody>tr>td {padding:24px 0!important;} }a,a:v=
+isited {text-decoration:none;}a,a:active,a:visited,a:hover,a:link {color:#1=
+09FFF;} .tb>table>tbody>tr>td {overflow:hidden;} .tb>div>table>tbody>tr>td =
+{overflow:hidden;}[class=3D"x_html-emails-background"] {background-color:#F=
+0F0F0!important;}[owa] .ub,[owa] .vb {width:50%!important;}[owa] .wb {width=
+:93%!important;max-width:93%!important;}[owa] .xb {max-width:400px;margin:0=
+ auto;}[owa] .yb>table>tbody>tr>td {padding:16px 20px 16px 20px!important;}=
+[owa] .zb>table>tbody>tr>td {padding:20px 20px 20px 20px!important;}[owa] .=
+ac {vertical-align:bottom!important;}</style><meta name=3D"format-detection=
+" content=3D"telephone=3Dno,date=3Dno,address=3Dno,email=3Dno,url=3Dno"><li=
+nk rel=3D"icon" href=3D"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5B=
+AEAAAAALAAAAAABAAEAAAICRAEAOw=3D=3D"><!--=C4=84--></head><body style=3D"wor=
+d-spacing:normal;background-color:#FFFFFF"><div style=3D"display:none;font-=
+size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity=
+:0;overflow:hidden"><span>This is your life&#039;s purpose</span><span>&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&=
+zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwn=
+j;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&=
+nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbs=
+p;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</span></div><div style=
+=3D"-webkit-font-smoothing:antialiased"><img src=3D"https://shoutout.wix.co=
+m/so/pixel/00000000-0000-0000-0000-000000000000/6b548af9-d350-4c88-9913-715=
+7a59ba9a5/6e442299-dc93-42d3-a825-5a68837b1bd1/d9f251f9-4bef-4a2e-b941-f3dd=
+c5443c99/top/true" style=3D"display:table;height:1px!important;width:1px!im=
+portant;border:0!important;margin:0!important;padding:0!important" width=3D=
+"1" height=3D"1" border=3D"0"><div style=3D"color:transparent;visibility:hi=
+dden;opacity:0;font-size:0px;border:0;max-height:1px;width:1px;margin:0px;p=
+adding:0px;border-width:0px!important;display:none!important;line-height:0p=
+x!important"><img src=3D"https://u37209074.ct.sendgrid.net/wf/open?upn=3Du0=
+01.gX-2BGW7-2F8j3ctrtX3naWLznZc8gW9OEJRbl1Iub2i41o1OgSr-2FsUSQn3U6rC5l6to4A=
+FqdC8J7RUFbV3xBikzIHCBbvZVlRc-2FCX6ZWRjMFvUWem3jA4jLS7O-2Fqxqhz-2FCWUQi6A4n=
+ThHj9nOD-2BqrnDYhsL44sw7McPLLOeZFJhpiecGCx8f5Jh85LElxPkDDVboBuAyKOKeRkD8zS1=
+7cp7TxHtkKYvflGtBxUCg-2FVPkBDRDZ42UmB-2BnvGjynWoSCs-2BIZ8STSCrsfZCCeDmnhBBu=
+eul-2FNGCdgrTv5POYtH7dP8etWNlDSBDbkD6mqBDq-2BK1PvtGhGhGmoEcIi1TSRlpnyvRqpgj=
+LqbxMitzylfwqIC34dIaoAjtbjXo3WlMLyRYXyruMBibWhMPU5oOcM38SKxIQzE4lDhfuRyHyGv=
+zYdhlkpwWlnBfM45Rtg-2BKAyX9KNKaCZ1KIj6YICVZl29CuOx-2Fmg3kmvDcNjrqE8Ai7rAyBR=
+DgQpgYMU1OXWDnQmTF-2Fn0G2hxA1hTxVM2gWk6XRbEhxA743xXgjLAkgaCws38jB9Rt71YGiqr=
+-2FEqwR73FUXDy6Lk68VKV1rDsl-2BBMiBc5K78a-2FJ-2Bq-2Fjcj-2FZqq07ubAifFaZfBPfr=
+M9KNIiL9L1bpGafxEuldz86jgrsJpm-2BqVYrXkL8AvKCjQ7pzp9CtT79NM9kCxuuQw8-2Fi2oX=
+O-2FHyEaPvln8t-2FMOJuubnPw9om8zUv1s21asXxQlLGTfhiwSR3fxmOAKFbP8JGpbnH39xLOl=
+CFwCgQsVrB8ImzrzNzZqUERL-2FhtAFuqGI3GIMfrO9BB0txcBwGT49CeOSr9V" alt=3D"" wi=
+dth=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1p=
+x !important;border-width:0 !important;margin-top:0 !important;margin-botto=
+m:0 !important;margin-right:0 !important;margin-left:0 !important;padding-t=
+op:0 !important;padding-bottom:0 !important;padding-right:0 !important;padd=
+ing-left:0 !important;"/></div><!--[if gte mso 9 & lt mso 16]><style> li { =
+text-indent: -1em; }
+</style><![endif]--><!--[if gte mso 16]><style> ul li { margin-left: 20px; =
+margin-right: 20px; } ol li { margin-left: 20px; margin-right: 20px; }
+</style><![endif]--><style>@media screen yahoo { .ub img,.vb img {max-width=
+:90%!important;} .bc {width:262px!important;} .html-emails-background {back=
+ground-position:50% 0!important;} .ac {vertical-align:top!important;}tbody =
+tr td div {overflow:visible!important;} }</style><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%"><tbody><tr><td>=
+<!--[if mso | IE]><table align=3D"center" border=3D"0" cellPadding=3D"0" ce=
+llSpacing=3D"0" role=3D"presentation" style=3D"width:632px" width=3D"632" b=
+gcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-=
+height-rule:exactly"><![endif]--><div style=3D"margin:0px auto;max-width:63=
+2px"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" role=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direc=
+tion:ltr;font-size:0px;padding:18px 20px 18px 20px;text-align:center"><!--[=
+if mso | IE]><table role=3D"presentation" border=3D"0" cellPadding=3D"0" ce=
+llSpacing=3D"0"><tr><td style=3D"vertical-align:top;width:592px"><![endif]-=
+-><div class=3D"" style=3D"font-size:0px;text-align:left;direction:ltr;disp=
+lay:inline-block;vertical-align:top;width:100%"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:=
+top" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"font-size:0px;=
+padding:0;word-break:break-word"><div style=3D"font-family:Helvetica,Ubuntu=
+,Arial,sans-serif;font-size:12px;line-height:20px;text-align:center;color:#=
+757575;white-space:pre-wrap"><strong style=3D"font-weight:normal">Can&#x27;=
+t see this message? <u><a style=3D"font-family:Helvetica,Ubuntu,Arial,sans-=
+serif;color:#222222;font-size:12px;line-height:20px;text-decoration:none" h=
+ref=3D"https://shoutout.wix.com/so/tr/1758c10d-6711-4831-a7ed-4bf614be8f1d/=
+c?w=3DE9bCLiDW3O05u3XAo1IwKtHjR3FQwCG17-7cxMd4MXw.eyJ1IjoiaHR0cHM6Ly9zaG91d=
+G91dC53aXguY29tL3NvL3RyLzE3NThjMTBkLTY3MTEtNDgzMS1hN2VkLTRiZjYxNGJlOGYxZCIs=
+ImMiOiJkOWYyNTFmOS00YmVmLTRhMmUtYjk0MS1mM2RkYzU0NDNjOTkiLCJtIjoibWFpbCJ9" r=
+el=3D"noopener noreferrer" target=3D"_blank">View in a browser</a></u></str=
+ong></div></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tab=
+le><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr>=
+</table><![endif]--></td></tr></tbody></table><table align=3D"center" class=
+=3D"html-emails-background" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#F0F0F0;width:100%;background-c=
+olor:#F0F0F0" width=3D"100%" bgcolor=3D"#F0F0F0"><tbody><tr><td><!--[if mso=
+ | IE]><table align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=
+=3D"0" role=3D"presentation" style=3D"width:632px" width=3D"632" bgcolor=3D=
+"#F0F0F0"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-ru=
+le:exactly"><![endif]--><div style=3D"margin:0px auto;max-width:632px"><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"width:100%"><tbody><tr><td style=3D"direction:lt=
+r;font-size:0px;padding:16px;text-align:center"><!--[if mso | IE]><table ro=
+le=3D"presentation" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tr><t=
+d width=3D"632px"><table align=3D"center" border=3D"0" cellPadding=3D"0" ce=
+llSpacing=3D"0" role=3D"presentation" style=3D"width:600px" width=3D"600"><=
+tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly"=
+><![endif]--><div style=3D"margin:0px auto;max-width:600px"><table align=3D=
+"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" style=3D"width:100%"><tbody><tr><td style=3D"border-left:0;border-righ=
+t:0;border-top:0;direction:ltr;font-size:0px;padding:0;text-align:center"><=
+!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellPadding=3D"0=
+" cellSpacing=3D"0"><tr><td style=3D"vertical-align:top;width:600px"><![end=
+if]--><div class=3D"" style=3D"font-size:0px;text-align:left;direction:ltr;=
+display:inline-block;vertical-align:top;width:100%"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-al=
+ign:top" width=3D"100%"><tbody><tr><td class=3D"rb" style=3D"background:#FF=
+FFFF;font-size:0px;word-break:break-word"><div style=3D"height:40px;line-he=
+ight:40px">&#8202;</div></td></tr></tbody></table></div><!--[if mso | IE]><=
+/td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | =
+IE]></td></tr></table></td></tr><tr><td width=3D"632px"><table align=3D"cen=
+ter" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0" role=3D"presentation"=
+ style=3D"width:600px" width=3D"600" bgcolor=3D"#FFFFFF"><tr><td style=3D"l=
+ine-height:0px;font-size:0px;mso-line-height-rule:exactly"><![endif]--><div=
+ class=3D"e cb z bb ab sb yb" style=3D"color:#222222;font-family:helvetica,=
+sans-serif;line-height:1.5;font-size:16px;background:#FFFFFF;background-col=
+or:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%"><tbody><tr><td style=
+=3D"border-left:0;border-right:0;direction:ltr;font-size:0px;padding:8px 48=
+px 8px 48px;text-align:center"><!--[if mso | IE]><table role=3D"presentatio=
+n" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tr><td style=3D"vertic=
+al-align:top;width:504px"><![endif]--><div class=3D"t" style=3D"font-size:0=
+px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;wi=
+dth:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%"><tbody><tr><td style=3D"background-color:transp=
+arent;border:0px none #B2B2B2;border-radius:0px;vertical-align:top;padding:=
+16px 20px 16px 20px"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" class=
+=3D"ob" style=3D"font-size:0px;padding:0px;word-break:break-word"><div styl=
+e=3D"font-family:helvetica,sans-serif;font-size:16px;font-style:normal;line=
+-height:1;text-align:left;text-transform:none;color:#222222;white-space:pre=
+-wrap"><div style=3D"text-align:center"><h2 class=3D"o jb lb" style=3D"marg=
+in:0;margin-block-start:0px;margin-block-end:0px;margin-inline-start:0px;ma=
+rgin-inline-end:0px;font-weight:normal;color:#222222;font-family:helvetica,=
+sans-serif;font-size:16px;text-align:left;line-height:20px;"><span style=3D=
+"" class=3D"jb lb">New from the Blog in&nbsp;<a href=3D"https://shoutout.wi=
+x.com/so/tr/1758c10d-6711-4831-a7ed-4bf614be8f1d/c?w=3DlXf3y%2FNppFr0-f2dVS=
+o3eXJXudAIihOcZUz6Y3GnRic.eyJ1IjoiaHR0cHM6Ly93d3cuaG91c2VoYWNrZXJzYW5vbnltb=
+3VzLmNvbS8iLCJyIjoiZDNjYjlhM2ItM2U5OS00MDI5LTg5MTYtYjNlYjZjYmY2ZGUyIiwiYyI6=
+ImQ5ZjI1MWY5LTRiZWYtNGEyZS1iOTQxLWYzZGRjNTQ0M2M5OSIsIm0iOiJtYWlsIn0" target=
+=3D"_blank" rel=3D"noopener noreferrer" style=3D"color:#109FFF;text-decorat=
+ion:none;"><span style=3D"text-decoration:underline;line-height:20px;font-s=
+ize:16px;" class=3D"jb lb">House Hackers App</span></a></span></h2></div></=
+div></td></tr></tbody></table></td></tr></tbody></table></div><!--[if mso |=
+ IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!--[if =
+mso | IE]></td></tr></table></td></tr><tr><td width=3D"632px"><table align=
+=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0" role=3D"presen=
+tation" style=3D"width:600px" width=3D"600" bgcolor=3D"#FFFFFF"><tr><td sty=
+le=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly"><![endif]=
+--><div class=3D"e cb z bb ab yb" style=3D"color:#222222;font-family:helvet=
+ica,sans-serif;line-height:1.5;font-size:16px;background:#FFFFFF;background=
+-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%"><tbody><tr><td =
+style=3D"border-left:0;border-right:0;direction:ltr;font-size:0px;padding:8=
+px 48px 8px 48px;text-align:center"><!--[if mso | IE]><table role=3D"presen=
+tation" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tr><td style=3D"v=
+ertical-align:top;width:504px"><![endif]--><div class=3D"t" style=3D"font-s=
+ize:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:t=
+op;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"background-color:t=
+ransparent;border:0px none #B2B2B2;border-radius:0px;vertical-align:top;pad=
+ding:16px 20px 16px 20px"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"left" c=
+lass=3D"ob" style=3D"font-size:0px;padding:0px;word-break:break-word"><div =
+style=3D"font-family:helvetica,sans-serif;font-size:16px;font-style:normal;=
+line-height:1;text-align:left;text-transform:none;color:#222222;white-space=
+:pre-wrap"><div style=3D"text-align:center"><p style=3D"margin:0;font-size:=
+24px;text-align:left;line-height:36px;" class=3D"kb mb"><span style=3D"font=
+-weight:bold" class=3D"kb mb">This is your life&#039;s purpose</span></p></=
+div></div></td></tr></tbody></table></td></tr></tbody></table></div><!--[if=
+ mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><!=
+--[if mso | IE]></td></tr></table></td></tr><tr><td width=3D"632px"><table =
+align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0" role=3D"p=
+resentation" style=3D"width:600px" width=3D"600" bgcolor=3D"#FFFFFF"><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly"><![e=
+ndif]--><div class=3D"cb z bb ab" style=3D"background:#FFFFFF;background-co=
+lor:#FFFFFF;margin:0px auto;max-width:600px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%"><tbody><tr><td style=
+=3D"border-left:0;border-right:0;direction:ltr;font-size:0px;padding:0px 48=
+px 0px 48px;text-align:center"><!--[if mso | IE]><table role=3D"presentatio=
+n" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tr><td style=3D"vertic=
+al-align:top;width:504px"><![endif]--><div class=3D"t" style=3D"font-size:0=
+px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;wi=
+dth:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padd=
+ing:4px 20px 4px 20px"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"center" st=
+yle=3D"font-size:0px;padding:0px;word-break:break-word"><div style=3D"font-=
+family:Ubuntu,Helvetica,Arial,sans-serif;font-size:13px;line-height:1;text-=
+align:center;color:#000000;white-space:pre-wrap"><a style=3D"display:inline=
+-block;max-width:100%"><!--[if mso]><img src=3D"" width=3D"464" style=3D"di=
+splay:inline-block;max-width:100%;width:auto;vertical-align:middle" alt=3D"=
+"/><![endif]--><!--[if !mso]><!--><img src=3D"" width=3D"auto" style=3D"dis=
+play:inline-block;max-width:100%;vertical-align:middle;width:auto;" alt=3D"=
+"><!--<![endif]--></a></div></td></tr></tbody></table></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbod=
+y></table></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td width=
+=3D"632px"><table align=3D"center" border=3D"0" cellPadding=3D"0" cellSpaci=
+ng=3D"0" role=3D"presentation" style=3D"width:600px" width=3D"600" bgcolor=
+=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly"><![endif]--><div class=3D"e cb z bb ab yb" style=3D"color:#2=
+22222;font-family:helvetica,sans-serif;line-height:1.5;font-size:16px;backg=
+round:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;widt=
+h:100%"><tbody><tr><td style=3D"border-left:0;border-right:0;direction:ltr;=
+font-size:0px;padding:8px 48px 8px 48px;text-align:center"><!--[if mso | IE=
+]><table role=3D"presentation" border=3D"0" cellPadding=3D"0" cellSpacing=
+=3D"0"><tr><td style=3D"vertical-align:top;width:504px"><![endif]--><div cl=
+ass=3D"t" style=3D"font-size:0px;text-align:left;direction:ltr;display:inli=
+ne-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td st=
+yle=3D"background-color:transparent;border:0px none #B2B2B2;border-radius:0=
+px;vertical-align:top;padding:16px 20px 16px 20px"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody=
+><tr><td align=3D"left" class=3D"ob" style=3D"font-size:0px;padding:0px;wor=
+d-break:break-word"><div style=3D"font-family:helvetica,sans-serif;font-siz=
+e:16px;font-style:normal;line-height:1;text-align:left;text-transform:none;=
+color:#222222;white-space:pre-wrap"><div style=3D"text-align:center"><p sty=
+le=3D"margin:0;text-align:left;line-height:24px;font-size:16px;" class=3D"j=
+b nb">This is who you are and what your life&#039;s purpose is. You&#039;re=
+ welcome ;) Free stuff: $250 when you deposit $10k with Mercury within 90..=
+.&nbsp;</p></div></div></td></tr></tbody></table></td></tr></tbody></table>=
+</div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td></tr></table></td></tr><tr><td width=3D"6=
+32px"><table align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D=
+"0" role=3D"presentation" style=3D"width:600px" width=3D"600" bgcolor=3D"#F=
+FFFFF"><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:=
+exactly"><![endif]--><div class=3D"cb z bb ab" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;margin:0px auto;max-width:600px"><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%"><tbody>=
+<tr><td style=3D"border-left:0;border-right:0;direction:ltr;font-size:0px;p=
+adding:0px 48px 0px 48px;text-align:left"><!--[if mso | IE]><table role=3D"=
+presentation" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0"><tr><td styl=
+e=3D"vertical-align:top;width:504px"><![endif]--><div class=3D"t" style=3D"=
+font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-a=
+lign:top;width:100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertical-ali=
+gn:top;padding:24px 20px 24px 20px"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=
+=3D"left" valign=3D"middle" class=3D"tb" style=3D"font-size:0px;padding:0;w=
+ord-break:break-word"><div style=3D"max-width:400px"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"border-col=
+lapse:separate;line-height:100%"><tbody><tr><td align=3D"center" bgcolor=3D=
+"#000000" role=3D"presentation" style=3D"border:solid 0px transparent;borde=
+r-radius:0px;cursor:auto;mso-padding-alt:15px 36px 15px 36px;background:#00=
+0000" valign=3D"middle"><a href=3D"https://shoutout.wix.com/so/tr/1758c10d-=
+6711-4831-a7ed-4bf614be8f1d/c?w=3DyQj1uqcIvMoLY7tfC-dUWKoO92kT-LpI8dQAmZAXw=
+4s.eyJ1IjoiaHR0cHM6Ly93d3cuaG91c2VoYWNrZXJzYW5vbnltb3VzLmNvbS9wb3N0L3RoaXMt=
+aXMteW91ci1saWZlLXMtcHVycG9zZT9wb3N0SWQ9NTQ2NGZmMzItZDg1ZC00ZGRhLWEzZmYtMTl=
+mMTJjNDI4ZTkxJmxhbmc9ZW4iLCJyIjoiNTgzN2YyOWUtNDY3OC00MmJlLWExMDktOGVlYzJmNj=
+gzMjdhIiwiYyI6ImQ5ZjI1MWY5LTRiZWYtNGEyZS1iOTQxLWYzZGRjNTQ0M2M5OSIsIm0iOiJtY=
+WlsIn0" rel=3D"noopener" style=3D"display:inline-block;background:#000000;c=
+olor:#ffffff;font-family:helvetica,sans-serif;font-size:16px;font-weight:no=
+rmal;line-height:120%;margin:0;text-decoration:none;text-transform:none;pad=
+ding:15px 36px 15px 36px;mso-padding-alt:0px;border-radius:0px;" target=3D"=
+_blank"><strong style=3D"font-weight:inherit">Check It Out</strong></a><img=
+ height=3D"1" style=3D"display:block;width:120px!important;height:1px;max-w=
+idth:100%!important;max-height:1px" src=3D"https://static.wixstatic.com/med=
+ia/5e9922_0a9111966d7648649336e1f1546c5ec9~mv2.gif" alt=3D""></td></tr></tb=
+ody></table></div></td></tr></tbody></table></td></tr></tbody></table></div=
+><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table>=
+</div><!--[if mso | IE]></td></tr></table></td></tr><tr><td width=3D"632px"=
+><table align=3D"center" border=3D"0" cellPadding=3D"0" cellSpacing=3D"0" r=
+ole=3D"presentation" style=3D"width:600px" width=3D"600"><tr><td style=3D"l=
+ine-height:0px;font-size:0px;mso-line-height-rule:exactly"><![endif]--><div=
+ style=3D"margin:0px auto;max-width:600px"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"w=
+idth:100%"><tbody><tr><td style=3D"border-bottom:0;border-left:0;border-rig=
+ht:0;direction:ltr;font-size:0px;padding:0;text-align:center"><!--[if mso |=
+ IE]><table role=3D"presentation" border=3D"0" cellPadding=3D"0" cellSpacin=
+g=3D"0"><tr><td style=3D"vertical-align:top;width:600px"><![endif]--><div c=
+lass=3D"" style=3D"font-size:0px;text-align:left;direction:ltr;display:inli=
+ne-block;vertical-align:top;width:100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"vertical-align:top" wid=
+th=3D"100%"><tbody><tr><td class=3D"" style=3D"background:#FFFFFF;font-size=
+:0px;word-break:break-word"><div style=3D"height:40px;line-height:40px">&#8=
+202;</div></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tab=
+le><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr>=
+</table></td></tr></table><![endif]--></td></tr></tbody></table></div><!--[=
+if mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:10=
+0%"><tbody><tr><td><!--[if mso | IE]><table align=3D"center" border=3D"0" c=
+ellPadding=3D"0" cellSpacing=3D"0" role=3D"presentation" style=3D"width:632=
+px" width=3D"632" bgcolor=3D"#FFFFFF"><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly"><![endif]--><div style=3D"margin:0p=
+x auto;max-width:632px"><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" role=3D"presentation" style=3D"width:100%"><tbody><tr=
+><td style=3D"direction:ltr;font-size:0px;padding:18px 20px 18px 20px;text-=
+align:center"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellPadding=3D"0" cellSpacing=3D"0"><tr><td style=3D"vertical-align:top;widt=
+h:592px"><![endif]--><div class=3D"" style=3D"font-size:0px;text-align:left=
+;direction:ltr;display:inline-block;vertical-align:top;width:100%"><table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"vertical-align:top" width=3D"100%"><tbody><tr><td align=3D"center" styl=
+e=3D"font-size:0px;padding:0;word-break:break-word"><div style=3D"font-fami=
+ly:Helvetica,Ubuntu,Arial,sans-serif;font-size:12px;line-height:20px;text-a=
+lign:center;color:#757575;white-space:pre-wrap"><strong style=3D"font-weigh=
+t:normal">This email was sent from <u><a style=3D"font-family:Helvetica,Ubu=
+ntu,Arial,sans-serif;color:#222222;font-size:12px;line-height:20px;text-dec=
+oration:none" href=3D"https://shoutout.wix.com/so/tr/1758c10d-6711-4831-a7e=
+d-4bf614be8f1d/c?w=3DGxpfKx2iMByT9Q0GKsH2eZIB3t3r0sKCt89bNMVQeK8.eyJ1IjoiaH=
+R0cHM6Ly93d3cuaG91c2VoYWNrZXJzYW5vbnltb3VzLmNvbS8iLCJjIjoiZDlmMjUxZjktNGJlZ=
+i00YTJlLWI5NDEtZjNkZGM1NDQzYzk5IiwibSI6Im1haWwifQ" rel=3D"noopener noreferr=
+er" target=3D"_blank">this site</a></u>.</strong></div></td></tr><tr><td al=
+ign=3D"center" style=3D"font-size:0px;padding:0;word-break:break-word"><div=
+ style=3D"font-family:Helvetica,Ubuntu,Arial,sans-serif;font-size:12px;line=
+-height:20px;text-align:center;color:#757575;white-space:pre-wrap"><strong =
+style=3D"font-weight:normal">If you no longer wish to receive this email, c=
+hange your email preferences <u><a style=3D"font-family:Helvetica,Ubuntu,Ar=
+ial,sans-serif;color:#222222;font-size:12px;line-height:20px;text-decoratio=
+n:none" href=3D"https://www.househackersanonymous.com//_manage-consent/api/=
+revoke-consent/unsubscribe?wixToken=3DJWE.eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBM=
+TI4Q0JDLUhTMjU2Iiwia2lkIjoiZkhJbFA4M1cifQ.l7U6E_jglvgjl_cSdCz-Zezank4gWXLN6=
+2xbUg4vDv8kAKHxk3TkSw.VXSru0UxFU_m7xlGVlwCqA.vE18sivb2mlnhSzGocTUukjkRQ9XPH=
+ysyLC0E_gH0X2EiiuhqxFJXte33rdP4UtFrn6tJcxWrOyZ9kc6dIW80aITXmWzrrKMPpnvWX_EY=
+-F7B3xZSDXmu73Ax1R9WWjiOgPRizRI5ThSpjN77jW1QMpUi7H7Og84Ipy9o8Z9ORvoFi-gpOCY=
+zYl8-HGK12OLxumDsASDVdgs_mPKZdzae0T59x4z6DFZ1yHUGMJD3_wUD8IYDevlc_o86R74hOB=
+LvtongG4r0a8SiX_HY9T4BLOenEyq2G3MS2Yzse71v94.IeQB4y6msP1iRt6cHpS09w&amp;loc=
+ale=3Den" rel=3D"noopener noreferrer" target=3D"_blank">here</a></u>.</stro=
+ng></div></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tabl=
+e><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr><=
+/table><![endif]--></td></tr></tbody></table><img src=3D"https://shoutout.w=
+ix.com/so/pixel/00000000-0000-0000-0000-000000000000/6b548af9-d350-4c88-991=
+3-7157a59ba9a5/6e442299-dc93-42d3-a825-5a68837b1bd1/d9f251f9-4bef-4a2e-b941=
+-f3ddc5443c99/bottom/true" style=3D"display:table;height:1px!important;widt=
+h:1px!important;border:0!important;margin:0!important;padding:0!important" =
+width=3D"1" height=3D"1" border=3D"0"></div></body></html>
+--e644fb410cc8030dd2329321ede99756f575025e7377afef038bf14f4cfe--
